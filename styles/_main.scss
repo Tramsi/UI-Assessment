@@ -75,10 +75,29 @@
 
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: max-content 1fr;
       gap: 1.5rem;
 
       &__product {
         @include card(1, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        &__circle {
+          width: 2.75rem;
+          height: 2.75rem;
+          background-color: $text-secondary;
+          border-radius: 10000px;
+        }
+        &__title {
+          @extend .light-grey-centered;
+          margin: 0.5rem 0;
+        }
+        &__number {
+          @extend .large-primary;
+        }
       }
 
       &__user {
