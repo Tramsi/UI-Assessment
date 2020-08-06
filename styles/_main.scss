@@ -14,12 +14,13 @@
   }
 
   &__cards {
-    padding: 5rem 2rem;
+    padding: 5rem 1rem;
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
     @include mq(map-get($screens, sm)) {
       grid-template-columns: repeat(12, 1fr);
+      padding: 5rem 2rem;
       gap: 1.5rem;
     }
 
@@ -40,6 +41,7 @@
           }
 
           &__btn {
+            font-family: "IBM Plex Sans", sans-serif;
             width: 6.875rem;
             height: 2rem;
             background-color: $btn-primary;
@@ -168,6 +170,68 @@
 
     &__transaction {
       @include card();
+      &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+          @extend .heading;
+        }
+        &__year {
+          @extend .grey-sub-heading;
+          border-radius: 0.25rem;
+          border-color: $border;
+          width: 5.5rem;
+          height: 2rem;
+          padding-left: 0.625rem;
+          border-width: 1px;
+        }
+      }
+      &__list {
+        list-style: none;
+
+        &__item {
+          margin-top: 1.5rem;
+          display: flex;
+          align-items: center;
+          &:nth-of-type(1) {
+            margin-top: 1rem;
+          }
+          &__circle {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.875rem;
+            border-radius: 10000px;
+            &--color {
+              &-purplish {
+                background-color: $circle-purple;
+              }
+              &-blueish {
+                background-color: $circle-blue;
+              }
+              &-reddish {
+                background-color: $circle-red;
+              }
+              &-greenish {
+                background-color: $circle-green;
+              }
+            }
+          }
+          &__details {
+            &__title {
+              @extend .grey-sub-heading;
+            }
+            &__subtitle {
+              @extend .tiny-grey;
+            }
+          }
+          &__number {
+            @extend .grey-sub-heading;
+            margin-left: auto;
+          }
+        }
+      }
     }
 
     &__slider {
