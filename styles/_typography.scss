@@ -1,0 +1,58 @@
+.large-blue {
+  font-family: "Rubik", sans-serif;
+  font-size: 2.8125rem;
+  font-weight: 500;
+  line-height: 1;
+  color: $btn-primary;
+}
+.large-primary {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.625rem;
+  line-height: 1.15;
+  color: $text-primary;
+}
+.bold-heading {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $text-primary;
+}
+
+.lg-heading {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: $text-primary;
+}
+
+.heading {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  color: $text-primary;
+}
+
+.grey-sub-heading {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: $text-secondary;
+}
+.light-grey-centered {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: $text-secondaryLight;
+  text-align: center;
+}
+.tiny-grey {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: $text-secondaryLight;
+}
+.description {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  color: $text-secondary;
+}
