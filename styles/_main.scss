@@ -1,0 +1,72 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: $body-background;
+  @include mq(map-get($screens, lg)) {
+    grid-template-columns: 16rem 1fr;
+  }
+
+  &__sidebar {
+    display: none;
+    @include mq(map-get($screens, lg)) {
+      display: unset;
+    }
+  }
+
+  &__cards {
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    @include mq(map-get($screens, sm)) {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+    }
+
+    &__greeting {
+      @include card();
+    }
+
+    &__statistics {
+      @include card();
+    }
+
+    &__multiple {
+      @include card();
+      //overriding some of the card mixin properities
+      background-color: unset;
+      box-shadow: unset;
+      padding: unset;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+
+      &__product {
+        @include card(1, 1);
+      }
+
+      &__user {
+        @include card(1, 1);
+      }
+
+      &__revenue {
+        @include card(2, 2);
+        //overriding grid column in mobile view in mixin
+        grid-column: auto / span 2;
+      }
+    }
+
+    &__summary {
+      @include card(12, 8);
+    }
+
+    &__transaction {
+      @include card();
+    }
+
+    &__slider {
+      @include card(12, 6);
+    }
+  }
+}
