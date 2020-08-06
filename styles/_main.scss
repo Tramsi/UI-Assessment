@@ -63,7 +63,58 @@
     }
 
     &__statistics {
+      font-family: "Rubik", sans-serif;
       @include card();
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__title {
+        @extend .heading;
+      }
+
+      &__list {
+        list-style: none;
+        &__item {
+          margin-top: 1.5rem;
+
+          &__title {
+            font-size: 1.25rem;
+            line-height: 1.2;
+            font-weight: 300;
+            color: $text-primary;
+          }
+
+          &__submitted {
+            margin: 0.3125rem 0;
+            font-weight: 300;
+            font-size: 0.8125rem;
+            line-height: 1.15;
+            color: $text-primary;
+
+            &__date {
+              font-weight: 500;
+            }
+          }
+
+          &__status {
+            margin: 0.3125rem 0;
+            font-weight: 300;
+            line-height: 1.15;
+            font-size: 0.8125rem;
+            color: $text-primary;
+            &__colored {
+              font-weight: 500;
+              &--status-approved {
+                color: $text-success;
+              }
+              &--status-pending {
+                color: $text-pending;
+              }
+            }
+          }
+        }
+      }
     }
 
     &__multiple {
@@ -88,7 +139,7 @@
         &__circle {
           width: 2.75rem;
           height: 2.75rem;
-          background-color: $text-secondary;
+          background-color: $circle-green;
           border-radius: 10000px;
         }
         &__title {

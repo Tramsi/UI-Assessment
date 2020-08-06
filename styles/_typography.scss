@@ -30,6 +30,7 @@
 .heading {
   font-family: "Rubik", sans-serif;
   font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.2;
   color: $text-primary;
 }
@@ -37,11 +38,13 @@
 .grey-sub-heading {
   font-size: 0.9375rem;
   line-height: 1.4;
+  font-weight: 400;
   color: $text-secondary;
 }
 .light-grey-centered {
   font-size: 0.9375rem;
   line-height: 1.4;
+  font-weight: 400;
   color: $text-secondaryLight;
   text-align: center;
 }
