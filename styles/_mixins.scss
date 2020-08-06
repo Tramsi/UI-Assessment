@@ -10,7 +10,6 @@ takes how many columns the card spans in sm and lg screens */
 @mixin card($sm-span: 6, $lg-span: 4) {
   padding: 1.5rem;
   border-radius: 4px;
-  box-shadow: -8px 12px 18px $card-shadow;
   background-color: $card-background;
   grid-column: auto / span 1;
   @include mq(map-get($screens, sm)) {
