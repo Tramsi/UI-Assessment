@@ -236,6 +236,79 @@
 
     &__slider {
       @include card(12, 6);
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        @include mq(map-get($screens, sm)) {
+          flex-direction: row;
+          text-align: left;
+        }
+        &__image {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          margin: 0 0 1.5rem 0;
+          @include mq(map-get($screens, sm)) {
+            width: 45%;
+            margin: 0 1.5rem 0 0;
+          }
+          &__tag {
+            max-width: 100%;
+          }
+        }
+        &__details {
+          width: 100%;
+          @include mq(map-get($screens, sm)) {
+            width: 55%;
+          }
+
+          &__title {
+            @extend .bold-heading;
+            margin-bottom: 1rem;
+          }
+
+          &__desc {
+            @extend .description;
+            margin-bottom: 1.5rem;
+          }
+
+          &__btn {
+            font-family: "IBM Plex Sans", sans-serif;
+            width: 6.875rem;
+            height: 2rem;
+            background-color: $btn-primary;
+            border: none;
+            border-radius: 0.25rem;
+            color: $card-background;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            box-shadow: 0px 2px 4px $btn-shadow;
+          }
+        }
+      }
+
+      &__dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5rem;
+        @include mq(map-get($screens, xlg)) {
+          margin-top: unset;
+        }
+        &__dot {
+          width: 0.625rem;
+          height: 0.625rem;
+          margin: 0 0.25rem;
+          border-radius: 1000px;
+          background-color: $text-secondaryLight;
+
+          &--status-active {
+            background-color: $text-primary;
+          }
+        }
+      }
     }
   }
 }
