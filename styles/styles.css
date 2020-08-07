@@ -101,7 +101,7 @@ takes how many columns the card spans in sm and lg screens and the order of card
   color: #475f7b;
 }
 
-.heading, .dashboard__cards__statistics__title, .dashboard__cards__transaction__top__title {
+.heading, .dashboard__sidebar__link, .dashboard__cards__statistics__title, .dashboard__cards__transaction__top__title {
   font-family: "Rubik", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
@@ -147,8 +147,8 @@ takes how many columns the card spans in sm and lg screens and the order of card
 
 .dashboard__typography {
   background-color: #ffffff;
-  margin: 4rem;
-  padding: 2rem;
+  margin: 5rem 2rem;
+  padding: 1.5rem;
   border-radius: 0.25rem;
 }
 
@@ -170,6 +170,7 @@ takes how many columns the card spans in sm and lg screens and the order of card
 .dashboard__sidebar {
   display: none;
   border-right: 1px solid #c7cfd6;
+  padding: 5rem 2rem;
 }
 
 @media screen and (min-width: 1024px) {

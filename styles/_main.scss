@@ -9,8 +9,12 @@
   &__sidebar {
     display: none;
     border-right: 1px solid $border;
+    padding: 5rem 2rem;
     @include mq(map-get($screens, lg)) {
       display: unset;
+    }
+    &__link {
+      @extend .heading;
     }
   }
 
