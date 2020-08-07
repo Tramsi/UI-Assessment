@@ -41,6 +41,15 @@
   font-weight: 400;
   color: $text-secondary;
 }
+
+.numbers-primary {
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: $text-primary;
+}
+
 .light-grey-centered {
   font-size: 0.9375rem;
   line-height: 1.4;
@@ -58,4 +67,11 @@
   font-size: 1.125rem;
   line-height: 1.35;
   color: $text-secondary;
+}
+
+.dashboard__typography {
+  background-color: $card-background;
+  margin: 4rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
 }

@@ -6,16 +6,19 @@
 }
 
 /* Mixin for a card defining it's style in diffrent screen sizes
-takes how many columns the card spans in sm and lg screens */
-@mixin card($sm-span: 6, $lg-span: 4) {
+takes how many columns the card spans in sm and lg screens and the order of cards in tablet view */
+@mixin card($sm-span: 6, $lg-span: 4, $order: unset) {
+  // changed: same padding for all cards for consistency
   padding: 1.5rem;
   border-radius: 4px;
   background-color: $card-background;
   grid-column: auto / span 1;
   @include mq(map-get($screens, sm)) {
     grid-column: auto / span $sm-span;
+    order: $order;
   }
   @include mq(map-get($screens, lg)) {
     grid-column: auto / span $lg-span;
+    order: unset;
   }
 }

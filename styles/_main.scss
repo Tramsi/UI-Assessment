@@ -8,6 +8,7 @@
 
   &__sidebar {
     display: none;
+    border-right: 1px solid $border;
     @include mq(map-get($screens, lg)) {
       display: unset;
     }
@@ -18,14 +19,26 @@
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 1.5rem;
+    max-width: 90rem;
+    margin: 0 auto;
     @include mq(map-get($screens, sm)) {
       grid-template-columns: repeat(12, 1fr);
       padding: 5rem 2rem;
+      //changed: fixed gap between all cards
       gap: 1.5rem;
     }
 
     &__greeting {
-      @include card();
+      //Assigning order for cards to fill any unused grid columns in tablet view
+      @include card($order: 1);
+
+      &__title {
+        @extend .lg-heading;
+      }
+
+      &__desc {
+        @extend .grey-sub-heading;
+      }
 
       &__sales {
         display: flex;
@@ -36,21 +49,18 @@
           flex-direction: column;
           justify-content: space-between;
 
+          &__number {
+            @extend .large-blue;
+          }
+
           &__desc {
+            @extend .grey-sub-heading;
             margin: 0.5rem 0;
           }
 
           &__btn {
-            font-family: "IBM Plex Sans", sans-serif;
-            width: 6.875rem;
-            height: 2rem;
-            background-color: $btn-primary;
-            border: none;
-            border-radius: 0.25rem;
-            color: $card-background;
-            font-size: 0.6875rem;
-            font-weight: 500;
-            box-shadow: 0px 2px 4px $btn-shadow;
+            //changed: centering text in buttons
+            @extend .btn;
           }
         }
         &__image {
@@ -66,7 +76,7 @@
 
     &__statistics {
       font-family: "Rubik", sans-serif;
-      @include card();
+      @include card($order: 2);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -78,17 +88,18 @@
       &__list {
         list-style: none;
         &__item {
-          margin-top: 1.5rem;
+          margin-top: 2rem;
 
+          //changed: font size of the list item title to be more consistent with similar titles in page
           &__title {
-            font-size: 1.25rem;
+            font-size: 0.9375rem;
             line-height: 1.2;
             font-weight: 300;
             color: $text-primary;
           }
 
           &__submitted {
-            margin: 0.3125rem 0;
+            margin-top: 0.3125rem;
             font-weight: 300;
             font-size: 0.8125rem;
             line-height: 1.15;
@@ -100,7 +111,7 @@
           }
 
           &__status {
-            margin: 0.3125rem 0;
+            margin-top: 0.3125rem;
             font-weight: 300;
             line-height: 1.15;
             font-size: 0.8125rem;
@@ -110,6 +121,7 @@
               &--status-approved {
                 color: $text-success;
               }
+              //changed: status pending color for better user experience to differentiate between different status
               &--status-pending {
                 color: $text-pending;
               }
@@ -120,7 +132,7 @@
     }
 
     &__multiple {
-      @include card();
+      @include card($order: 3);
       //overriding some of the card mixin properities
       background-color: unset;
       box-shadow: unset;
@@ -132,6 +144,7 @@
       gap: 1.5rem;
 
       &__product {
+        //changed: used the card mixin which fixed the missing padding bottom and the card is consistent with others
         @include card(1, 1);
         display: flex;
         flex-direction: column;
@@ -165,11 +178,11 @@
     }
 
     &__summary {
-      @include card(12, 8);
+      @include card(12, 8, $order: 5);
     }
 
     &__transaction {
-      @include card();
+      @include card($order: 4);
       &__top {
         display: flex;
         justify-content: space-between;
@@ -178,14 +191,32 @@
         &__title {
           @extend .heading;
         }
-        &__year {
-          @extend .grey-sub-heading;
-          border-radius: 0.25rem;
-          border-color: $border;
-          width: 5.5rem;
-          height: 2rem;
-          padding-left: 0.625rem;
-          border-width: 1px;
+
+        &__select-container {
+          position: relative;
+          &__year {
+            @extend .grey-sub-heading;
+            // Removing the default chevron of select menu
+            -moz-appearance: none; /* Firefox */
+            -webkit-appearance: none; /* Safari and Chrome */
+            appearance: none;
+            border-radius: 0.25rem;
+            border-color: $border;
+            width: 5.5rem;
+            height: 2rem;
+            padding-left: 0.625rem;
+            border-width: 1px;
+          }
+
+          //Adding chevron
+          &__chevron {
+            @extend .gg-chevron-down;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            pointer-events: none;
+          }
         }
       }
       &__list {
@@ -227,7 +258,8 @@
             }
           }
           &__number {
-            @extend .grey-sub-heading;
+            //changed: number color and font to be consistent with other numbers in page
+            @extend .numbers-primary;
             margin-left: auto;
           }
         }
@@ -235,7 +267,9 @@
     }
 
     &__slider {
-      @include card(12, 6);
+      //changed: card rounded corners to be more consistent with other cards
+      //changed: card width to follow the grid layout
+      @include card(12, 6, $order: 6);
       &__content {
         display: flex;
         flex-direction: column;
@@ -258,6 +292,7 @@
             max-width: 100%;
           }
         }
+        // changed: all text colos to use the colors in page to be more consistent
         &__details {
           width: 100%;
           @include mq(map-get($screens, sm)) {
@@ -273,22 +308,14 @@
             @extend .description;
             margin-bottom: 1.5rem;
           }
-
+          //changed: button style to be more consistent with others button in page
           &__btn {
-            font-family: "IBM Plex Sans", sans-serif;
-            width: 6.875rem;
-            height: 2rem;
-            background-color: $btn-primary;
-            border: none;
-            border-radius: 0.25rem;
-            color: $card-background;
-            font-size: 0.6875rem;
-            font-weight: 500;
-            box-shadow: 0px 2px 4px $btn-shadow;
+            @extend .btn;
           }
         }
       }
 
+      //changed: dots position to the center of card to make it easier for the user to know that the slider is for the whole card
       &__dots {
         display: flex;
         justify-content: center;
@@ -303,6 +330,7 @@
           margin: 0 0.25rem;
           border-radius: 1000px;
           background-color: $text-secondaryLight;
+          cursor: pointer;
 
           &--status-active {
             background-color: $text-primary;
